@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "vortex",
+  "version": "${version}",
+  "name": "Vortex Client",
+  "description": "Performance-focused client suite: optimizer modules, HUD, monitoring and a custom menu.",
+  "authors": ["Vortex"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.vortex.VortexClient"]
+  },
+  "mixins": ["vortex.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

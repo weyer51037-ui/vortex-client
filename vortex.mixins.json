@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.vortex.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MinecraftClientMixin",
+    "ParticleManagerMixin",
+    "EntityRenderDispatcherMixin",
+    "GameRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}
