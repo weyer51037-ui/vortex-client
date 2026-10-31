@@ -1,0 +1,41 @@
+
+name: Build Vortex Client
+
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build Vortex Client
+        working-directory: vortex/mod
+        run: |
+          gradle build --no-daemon
+
+      - name: Upload Java
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vortex-Client-Java
+          path: vortex/mod/build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 30
